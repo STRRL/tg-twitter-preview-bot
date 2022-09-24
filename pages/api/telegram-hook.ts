@@ -13,8 +13,10 @@ const BASE_PATH: string = process.env.BASE_PATH!;
 const bot = new Telegraf(BOT_TOKEN);
 
 bot.on("message", async (ctx) => {
+  console.log(ctx.message);
   await ctx.reply(JSON.stringify(ctx.message));
 });
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
