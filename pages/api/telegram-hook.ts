@@ -3,9 +3,7 @@ import { CallTracker } from "assert";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Telegraf } from "telegraf";
 
-type Data = {
-  name: string;
-};
+
 
 const BOT_TOKEN: string = process.env.BOT_TOKEN!;
 const BASE_PATH: string = process.env.BASE_PATH!;
@@ -23,7 +21,7 @@ bot.on("message", async (ctx) => {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<string>
 ) {
   bot.webhookCallback;
   try {
