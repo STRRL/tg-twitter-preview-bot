@@ -14,13 +14,18 @@ const bot = new Telegraf(BOT_TOKEN);
 
 bot.on("message", async (ctx) => {
   console.log(ctx.message);
-  await ctx.reply(JSON.stringify(ctx.message));
+  const { message } = ctx;
+
+  await ctx.reply("Confirmed!", {
+    reply_to_message_id: message.message_id,
+  });
 });
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  bot.webhookCallback;
   try {
     const { body } = req;
     await bot.handleUpdate(body);
