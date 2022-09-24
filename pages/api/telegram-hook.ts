@@ -28,5 +28,5 @@ export default async function handler(
     console.log(e);
   }
 
-  res.status(200);
+  res.status(200).send("OK");
 }
